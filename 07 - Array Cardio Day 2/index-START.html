@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Array Cardio 💪💪</title>
   <link rel="icon" href="https://fav.farm/🔥" />
 </head>
+
 <body>
   <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
   <script>
@@ -25,18 +27,56 @@
       { text: 'Nice Nice Nice!', id: 542328 }
     ];
 
-    // Some and Every Checks
+    // Some and Every Checks 
     // Array.prototype.some() // is at least one person 19 or older?
+
+    const isAdult = people.some(person => {
+      const currentYear = (new Date()).getFullYear();
+      return currentYear - person.year >= 19;
+
+    })
+
+    console.log({ isAdult });
+
     // Array.prototype.every() // is everyone 19 or older?
 
+    const allAdults = people.every(person => {
+      const currentYear = (new Date()).getFullYear();
+      return currentYear - person.year >= 19;
+
+    })
+
+    console.log({ allAdults });
+    //false because not everything in the array meets the criter of being 19 or older. 
+
     // Array.prototype.find()
+    // similar to filter but doesn't give the sub-set of the array but returns the first item it finds.
     // Find is like filter, but instead returns just the one you are looking for
     // find the comment with the ID of 823423
+    const comment = comments.find(function (comment) {
+      if (comment.id === 823423) {
+        return true;
+      }
+    })
+    console.log(comment);
+
+    //arrow function >> const comment = comments.find(comment => comment.id === 823423);
 
     // Array.prototype.findIndex()
     // Find the comment with this ID
     // delete the comment with the ID of 823423
+    const index = comments.findIndex(comment = comment.id === 823423);
+    console.log(index);
+
+    // comments.plice(index, 1);
+
+    const newCOmments = [
+      ...comments.slice(0, index),
+      ...comments.slice(index + 1)
+
+    ];
 
   </script>
 </body>
+
 </html>
